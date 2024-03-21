@@ -7,7 +7,7 @@ const Header = () => {
     <HeaderComponent>
         <HeaderList>
           <li><Link to="/"><NavigationButton>About Us</NavigationButton></Link></li>
-          <li><Link to="/page1"><NavigationButton>Catalog</NavigationButton></Link></li>
+          <li><Link to="/Catalog"><NavigationButton>Catalog</NavigationButton></Link></li>
           <li><Link to="/page2"><NavigationButton>Favorites</NavigationButton></Link></li>
         </HeaderList>
     </HeaderComponent>
