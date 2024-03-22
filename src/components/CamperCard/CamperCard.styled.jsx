@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const CamperCardDiv = styled.div`
     border: 1px solid rgba(16, 24, 40, 0.2);
     border-radius: 20px;
-    padding: 24px;
+    padding: 24px 24px 0px 24px;
     max-width: 888px;
     height: 358px;
-
+    margin: 30px auto;
 `;
 
 export const CamperImg = styled.img`
@@ -17,7 +17,7 @@ export const CamperImg = styled.img`
     object-position: center;
     display: flex;
 
-    @media (max-width: 1439px) {
+    @media (min-width: 370px) and (max-width: 767px) {
 
     }
 `;
@@ -28,7 +28,7 @@ export const CamperName = styled.h2`
     display: flex;
     line-height: 125%;
 
-    margin-left: 320px;
+    margin-left: 317px;
     margin-top: -315px;
 `;
 
@@ -60,4 +60,26 @@ export const CamperSvg = styled.svg`
     width: 16px;
     height: 16px;
     margin-right: 5px;
+`;
+
+export const CamperDetailsList = styled.ul`
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 888px;
+`;
+
+export const CamperDetailsLi = styled.li`
+    border-radius: 100px;
+    padding: 12px 18px;
+    background-color: #F2F4F7;
+    flex: 0 0 auto;
+    margin-bottom: 10px;
+    box-sizing: border-box; 
+`;
+
+export const CamperDetailsDiv = styled.div`
+    margin-left: 275px;
+
 `;
