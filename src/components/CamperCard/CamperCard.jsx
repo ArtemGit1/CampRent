@@ -1,5 +1,5 @@
 import React from 'react';
-import { CamperCardDiv, CamperImg, CamperName, CamperRate, CamperDescription, CamperLocation, CamperSvg, CamperDetailsList, CamperDetailsLi, CamperDetailsDiv } from './CamperCard.styled';
+import { CamperCardDiv, CamperImg, CamperName, CamperRate, CamperDescription, CamperLocation, CamperSvg, CamperDetailsList, CamperDetailsLi, CamperDetailsDiv, CamperPrice } from './CamperCard.styled';
 import symbolDefs from '../../images/symbol-defs.svg';
 
 const CamperCard = ({ camper }) => {
@@ -49,6 +49,7 @@ const CamperCard = ({ camper }) => {
     <CamperCardDiv>
       <CamperImg src={camper.gallery[0]} alt={camper.name} />
       <CamperName>{camper.name}</CamperName>
+      <CamperPrice>{camper.price},00</CamperPrice>
       <CamperRate href="/catalog">{camper.rating}</CamperRate>
       <CamperLocation>
         <CamperSvg>

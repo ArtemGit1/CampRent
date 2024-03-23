@@ -83,3 +83,12 @@ export const CamperDetailsDiv = styled.div`
     margin-left: 275px;
 
 `;
+
+export const CamperPrice = styled.p`
+    margin-left: 800px;
+    margin-top: -45px;
+
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 125%;
+`;

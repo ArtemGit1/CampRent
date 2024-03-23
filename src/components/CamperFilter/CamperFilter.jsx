@@ -1,6 +1,24 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
-import { FilterContainer, FilterLabel, FilterCheckbox, FilterCheckboxLabel } from './CamperFilter.styled';
+import { FilterContainer, FilterLabel, FilterCheckboxLabel, CamperTypeDiv, CamperFilterSubmitButton, CamperFilterEquipmentDiv  } from './CamperFilter.styled';
+import styled from 'styled-components';
+
+const InvisibleCheckbox = styled(Field)`
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+`;
+
+const StyledFilterCheckboxLabel = styled(FilterCheckboxLabel)`
+  border-color: rgba(16, 24, 40, 0.2);
+  &:hover {
+    background-color: rgba(16, 24, 40, 0.1);
+  }
+  input[type='checkbox']:checked + & {
+    border-color: #E44848;
+  }
+`;
 
 const CamperFilter = ({ functions, onFilterChange }) => {
   return (
@@ -22,69 +40,72 @@ const CamperFilter = ({ functions, onFilterChange }) => {
           gas: false,
           water: false,
         },
-        vehicleType: 'all',
+        vehicleType: {
+          van: false,
+          fullyIntegrated: false,
+          alcove: false,
+        },
       }}
       onSubmit={(values, { setSubmitting }) => {
         setSubmitting(false);
       }}
     >
-      <Form>
+      <Form style={{maxWidth: '360px'}}>
         <FilterContainer>
           <FilterLabel>Filter by functions:</FilterLabel>
           {functions.map(func => (
             <React.Fragment key={func.name}>
-              <FilterCheckbox
-                id={func.name}
+              <InvisibleCheckbox
                 type="checkbox"
+                id={func.name}
+                name={func.name}
                 checked={func.checked}
                 onChange={() => onFilterChange(func.name)}
               />
-              <label htmlFor={func.name}>{func.name}</label>
+              <StyledFilterCheckboxLabel htmlFor={func.name}>{func.name}</StyledFilterCheckboxLabel>
             </React.Fragment>
           ))}
           <label htmlFor="location"><p>Location</p></label>
           <Field type="text" id="location" name="location" placeholder="Enter location" />
           <FilterLabel>Vehicle Equipment:</FilterLabel>
-          <div>
-            <Field type="checkbox" id="airConditioner" name="vehicleEquipment.airConditioner" />
-            <FilterCheckboxLabel htmlFor="airConditioner">Air Conditioner</FilterCheckboxLabel>
-            <Field type="checkbox" id="bathroom" name="vehicleEquipment.bathroom" />
-            <FilterCheckboxLabel htmlFor="bathroom">Bathroom</FilterCheckboxLabel>
-            <Field type="checkbox" id="kitchen" name="vehicleEquipment.kitchen" />
-            <FilterCheckboxLabel htmlFor="kitchen">Kitchen</FilterCheckboxLabel>
-            <Field type="checkbox" id="beds" name="vehicleEquipment.beds" />
-            <FilterCheckboxLabel htmlFor="beds">Beds</FilterCheckboxLabel>
-            <Field type="checkbox" id="TV" name="vehicleEquipment.TV" />
-            <FilterCheckboxLabel htmlFor="TV">TV</FilterCheckboxLabel>
-            <Field type="checkbox" id="CD" name="vehicleEquipment.CD" />
-            <FilterCheckboxLabel htmlFor="CD">CD</FilterCheckboxLabel>
-            <Field type="checkbox" id="radio" name="vehicleEquipment.radio" />
-            <FilterCheckboxLabel htmlFor="radio">Radio</FilterCheckboxLabel>
-            <Field type="checkbox" id="shower" name="vehicleEquipment.shower" />
-            <FilterCheckboxLabel htmlFor="shower">Shower</FilterCheckboxLabel>
-            <Field type="checkbox" id="toilet" name="vehicleEquipment.toilet" />
-            <FilterCheckboxLabel htmlFor="toilet">Toilet</FilterCheckboxLabel>
-            <Field type="checkbox" id="freezer" name="vehicleEquipment.freezer" />
-            <FilterCheckboxLabel htmlFor="freezer">Freezer</FilterCheckboxLabel>
-            <Field type="checkbox" id="microwave" name="vehicleEquipment.microwave" />
-            <FilterCheckboxLabel htmlFor="microwave">Microwave</FilterCheckboxLabel>
-            <Field type="checkbox" id="gas" name="vehicleEquipment.gas" />
-            <FilterCheckboxLabel htmlFor="gas">Gas</FilterCheckboxLabel>
-            <Field type="checkbox" id="water" name="vehicleEquipment.water" />
-            <FilterCheckboxLabel htmlFor="water">Water</FilterCheckboxLabel>
-          </div>
+          <CamperFilterEquipmentDiv>
+            <InvisibleCheckbox type="checkbox" id="airConditioner" name="vehicleEquipment.airConditioner" />
+            <StyledFilterCheckboxLabel htmlFor="airConditioner">AC</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="bathroom" name="vehicleEquipment.bathroom" />
+            <StyledFilterCheckboxLabel htmlFor="bathroom">Bathroom</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="kitchen" name="vehicleEquipment.kitchen" />
+            <StyledFilterCheckboxLabel htmlFor="kitchen">Kitchen</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="beds" name="vehicleEquipment.beds" />
+            <StyledFilterCheckboxLabel htmlFor="beds">Beds</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="TV" name="vehicleEquipment.TV" />
+            <StyledFilterCheckboxLabel htmlFor="TV">TV</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="CD" name="vehicleEquipment.CD" />
+            <StyledFilterCheckboxLabel htmlFor="CD">CD</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="radio" name="vehicleEquipment.radio" />
+            <StyledFilterCheckboxLabel htmlFor="radio">Radio</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="shower" name="vehicleEquipment.shower" />
+            <StyledFilterCheckboxLabel htmlFor="shower">Shower</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="toilet" name="vehicleEquipment.toilet" />
+            <StyledFilterCheckboxLabel htmlFor="toilet">Toilet</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="freezer" name="vehicleEquipment.freezer" />
+            <StyledFilterCheckboxLabel htmlFor="freezer">Freezer</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="microwave" name="vehicleEquipment.microwave" />
+            <StyledFilterCheckboxLabel htmlFor="microwave">Microwave</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="gas" name="vehicleEquipment.gas" />
+            <StyledFilterCheckboxLabel htmlFor="gas">Gas</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="water" name="vehicleEquipment.water" />
+            <StyledFilterCheckboxLabel htmlFor="water">Water</StyledFilterCheckboxLabel>
+          </CamperFilterEquipmentDiv>
           <FilterLabel>Vehicle Type:</FilterLabel>
-          <div>
-            <Field type="radio" id="all" name="vehicleType" value="all" />
-            <label htmlFor="all">All</label>
-            <Field type="radio" id="van" name="vehicleType" value="van" />
-            <label htmlFor="van">Van</label>
-            <Field type="radio" id="fullyIntegrated" name="vehicleType" value="fullyIntegrated" />
-            <label htmlFor="fullyIntegrated">Fully Integrated</label>
-            <Field type="radio" id="alcove" name="vehicleType" value="alcove" />
-            <label htmlFor="alcove">Alcove</label>
-          </div>
-          <button type="submit">Submit</button>
+          <CamperTypeDiv>
+            <InvisibleCheckbox type="checkbox" id="van" name="vehicleType.van" />
+            <StyledFilterCheckboxLabel htmlFor="van">Van</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="fullyIntegrated" name="vehicleType.fullyIntegrated" />
+            <StyledFilterCheckboxLabel htmlFor="fullyIntegrated">Fully Integrated</StyledFilterCheckboxLabel>
+            <InvisibleCheckbox type="checkbox" id="alcove" name="vehicleType.alcove" />
+            <StyledFilterCheckboxLabel htmlFor="alcove">Alcove</StyledFilterCheckboxLabel>
+          </CamperTypeDiv>
+          <CamperFilterSubmitButton type="submit">Submit</CamperFilterSubmitButton>
         </FilterContainer>
       </Form>
     </Formik>

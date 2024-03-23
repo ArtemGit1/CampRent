@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CamperCard from '../CamperCard/CamperCard';
+import { CampersListDiv } from './CampersList.styled';
+import LoadMoreButton from '../LoadMore/LoadMoreButton';
 
-const CampersList = ({ campers }) => {
+const CampersList = ({ campers, cardsPerPage }) => {
+  const [visibleCount, setVisibleCount] = useState(cardsPerPage);
+
+  const handleLoadMore = () => {
+    setVisibleCount(visibleCount + cardsPerPage);
+  };
+
   return (
-    <div>
-      {campers.map((camper) => (
+    <CampersListDiv>
+      {campers.slice(0, visibleCount).map((camper) => (
         <CamperCard key={camper._id} camper={camper} />
       ))}
-    </div>
+      {visibleCount < campers.length && <LoadMoreButton onClick={handleLoadMore} />}
+    </CampersListDiv>
   );
 };
 
