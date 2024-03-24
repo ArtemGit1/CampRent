@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IoIosClose } from "react-icons/io";
 import symbolDefs from '../../images/symbol-defs.svg';
-import { ModalClose, CamperPriceModal, ModalContent, ModalWrapper, Wrapper, OpenModal, CamperGalleryImg, ModalBasicInfo, CamperLocationModal, CamperSvgLpcationModal, CamperGalleryContainer, CamperDetailsList, CamperDetailsLi, MiniTabs, MiniTab, ReviewContainer, ReviewerName, ReviewerRating, ReviewComment } from "./ModalWindow.styled";
+import { ModalClose, CamperPriceModal, ModalContent, ModalWrapper, Wrapper, OpenModal, CamperGalleryImg, ModalBasicInfo, CamperLocationModal, CamperSvgLpcationModal, CamperGalleryContainer, CamperDetailsList, CamperDetailsLi, MiniTabs, MiniTab,} from "./ModalWindow.styled";
 import Review from './Review';
 
 const ModalWindow = ({ camper }) => {

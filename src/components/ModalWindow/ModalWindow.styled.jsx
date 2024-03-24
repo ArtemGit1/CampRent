@@ -148,9 +148,9 @@ export const ReviewerName = styled.p`
 `;
 
 export const ReviewerRating = styled.p`
-  margin-bottom: 5px;
+    margin-bottom: 5px;
 `;
 
 export const ReviewComment = styled.p`
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 `;
