@@ -7,6 +7,7 @@ export const CamperCardDiv = styled.div`
     max-width: 888px;
     height: 358px;
     margin: 30px auto;
+
 `;
 
 export const CamperImg = styled.img`
@@ -52,7 +53,7 @@ export const CamperDescription = styled.p`
 export const CamperLocation = styled.p`
     display: flex;
     margin-top: 0px;
-    margin-left: 350px;
+    margin-left: 430px;
     margin-top: -18px;
 `;
 
@@ -91,4 +92,20 @@ export const CamperPrice = styled.p`
     font-weight: 600;
     font-size: 24px;
     line-height: 125%;
+`;
+
+export const ShowMore = styled.button`
+    border-radius: 200px;
+    padding: 16px 40px;
+    width: 166px;
+    height: 56px;
+    border: none;
+    color: black;
+    cursor: pointer;
+
+    &:hover,
+    &:focus{
+    background-color: #E44848;
+    color: white;
+  }
 `;

@@ -1,8 +1,12 @@
-import React from 'react';
-import { CamperCardDiv, CamperImg, CamperName, CamperRate, CamperDescription, CamperLocation, CamperSvg, CamperDetailsList, CamperDetailsLi, CamperDetailsDiv, CamperPrice } from './CamperCard.styled';
+import React, { useState } from 'react';
+import { CamperCardDiv, CamperImg, CamperName, CamperRate, CamperDescription, CamperLocation, CamperSvg, CamperDetailsList, CamperDetailsLi, CamperDetailsDiv, CamperPrice,  } from './CamperCard.styled';
 import symbolDefs from '../../images/symbol-defs.svg';
+import ModalWindow from 'components/ModalWindow/ModalWindow';
 
 const CamperCard = ({ camper }) => {
+  const [selectedCamper, setSelectedCamper] = useState(null);
+  
+  
   const functions = [];
 
   if (camper.details.airConditioner) {
@@ -47,10 +51,12 @@ const CamperCard = ({ camper }) => {
 
   return (
     <CamperCardDiv>
+
+      <button onClick={() => setSelectedCamper(camper)}>Show More</button>
       <CamperImg src={camper.gallery[0]} alt={camper.name} />
       <CamperName>{camper.name}</CamperName>
-      <CamperPrice>{camper.price},00</CamperPrice>
-      <CamperRate href="/catalog">{camper.rating}</CamperRate>
+      <CamperPrice>€{camper.price},00</CamperPrice>
+      <CamperRate href="/catalog">{camper.rating} ({camper.reviews.length} Reviews)</CamperRate>
       <CamperLocation>
         <CamperSvg>
           <use xlinkHref={`${symbolDefs}#icon-map-pin`} />
@@ -59,6 +65,8 @@ const CamperCard = ({ camper }) => {
       </CamperLocation>
       <CamperDescription>{camper.description}</CamperDescription>
       <CamperFunctions functions={functions} />
+
+      {selectedCamper && <ModalWindow camper={selectedCamper} />}
     </CamperCardDiv>
   );
 };

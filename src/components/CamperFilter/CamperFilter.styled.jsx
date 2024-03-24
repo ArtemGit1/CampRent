@@ -18,6 +18,7 @@ export const CamperFilterSubmitButton = styled.button`
   height: 56px;
   border: none;
   margin-top: 20px;
+  color: black;
 
   &:hover,
   &:focus{
