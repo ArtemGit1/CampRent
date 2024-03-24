@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/CampRent/static/css/main.7acaea2f.css",
-    "main.js": "/CampRent/static/js/main.6806b1c4.js",
+    "main.js": "/CampRent/static/js/main.ce7b391d.js",
     "static/media/symbol-defs.svg": "/CampRent/static/media/symbol-defs.a720d8ad52ad3431fc683259a646e740.svg",
     "index.html": "/CampRent/index.html",
     "main.7acaea2f.css.map": "/CampRent/static/css/main.7acaea2f.css.map",
-    "main.6806b1c4.js.map": "/CampRent/static/js/main.6806b1c4.js.map"
+    "main.ce7b391d.js.map": "/CampRent/static/js/main.ce7b391d.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.6806b1c4.js"
+    "static/js/main.ce7b391d.js"
   ]
 }
